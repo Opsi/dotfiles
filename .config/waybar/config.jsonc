@@ -1,0 +1,142 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-bottom": 0,
+  // Choose the order of the modules
+  "modules-center": [
+    "sway/workspaces"
+  ],
+  "modules-left": [
+    "custom/lock",
+    "custom/reboot",
+    "custom/power"
+  ],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "custom/audio",
+    "battery",
+    "clock"
+  ],
+  // Configuration for individual modules
+  "sway/workspaces": {
+    "persistent-workspaces": {
+      "A": [],
+      "B": [],
+      "C": [],
+      "D": [],
+      "E": []
+    },
+    "format": "[{name}]",
+    "on-click": "activate",
+    "disable-scroll": true,
+    "disable-auto-back-and-forth": true,
+    "alphabetical_sort": true
+  },
+  "custom/lock": {
+    "format": "<span color='#8caaee'></span>",
+    // TODO: fix this
+    "on-click": "hyprlock"
+  },
+  "custom/reboot": {
+    "format": "<span color='#e5c890'></span>",
+    "on-click": "systemctl reboot"
+  },
+  "custom/power": {
+    "format": "<span color='#e78284'></span>",
+    "on-click": "systemctl poweroff"
+  },
+  "clock": {
+    "timezone": "Europe/Berlin",
+    "locale": "de_DE.UTF-8",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "on-click": "mode",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#8caaee'><b>{}</b></span>",
+        "days": "<span color='#c6d0f5'><b>{}</b></span>",
+        "weeks": "<span color='#f4b8e4'><b>KW{:%W}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "⚡ {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "Connected  ",
+    "tooltip-format": "{ifname}: {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    // TODO: fix this
+    "on-click-right": "bash ~/.config/rofi/wifi_menu/rofi_wifi_menu"
+  },
+  "memory": {
+    "interval": "5",
+    "format": "[M {percentage:>2}%]",
+    "max-length": 10
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "[C {icon0}{icon1}{icon2}{icon3} {usage:>2}%]",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
+  },
+  "bluetooth": {
+    "format": " {status} ",
+    "format-connected": " {device_alias} ",
+    "format-connected-battery": " {device_alias}{device_battery_percentage}% ",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "custom/audio": {
+    "signal": 8,
+    "interval": "once",
+    "exec": "~/.config/sway/audio.sh",
+    "on-click": "pavucontrol"
+  }
+}
