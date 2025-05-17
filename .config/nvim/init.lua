@@ -1,2 +1,2 @@
 require("opsi")
-print("hello LOL")
+vim.lsp.enable('luals')
