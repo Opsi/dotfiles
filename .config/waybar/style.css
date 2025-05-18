@@ -1,30 +1,30 @@
 @import "frappe.css";
 
 * {
-  font-family: "Fira Code";
-  font-size: 14px;
+  border: none;
+  border-radius: 0rem;
+  font-family: FiraCode Nerd Font, Fira Code;
+  font-size: 13px;
   min-height: 0;
-  padding: 2px;
 }
 
-#waybar {
+window#waybar {
+  background-color: transparent;
+}
+
+/* Workspaces */
+#workspaces button {
+  all: initial;
+  min-width: 0;
+  padding: 6px 12px;
+  margin: 6px 3px;
   background-color: @base;
   color: @text;
 }
 
-#workspaces {
-}
-
-#workspaces button {
-  color: @text;
-}
-
-#workspaces button.active {
-  color: @peach;
-}
-
 #workspaces button.focused {
-  color: @pink;
+  color: @base;
+  background-color: @pink;
 }
 
 #workspaces button:hover {
@@ -32,30 +32,43 @@
   color: @sky;
 }
 
-#custom-music,
-#tray,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
+/* Modules left */
+#custom-power,
+#custom-reboot,
+#custom-sleep {
   background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+  padding: 6px 12px;
+  margin: 6px 3px;
+}
+#custom-power {
+  color: @red;
+}
+#custom-reboot {
+  color: @yellow;
+}
+#custom-sleep {
+  color: @blue;
+}
+
+/* Modules right */
+#network,
+#bluetooth,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#clock {
+  background-color: @surface0;
+  padding: 6px 12px;
+  margin: 6px 3px;
+}
+
+#bluetooth {
+  color: @blue;
 }
 
 #clock {
   color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
-}
-
-.tooltip {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    color: #ffffff; /* White text color */
-    padding: 10px; /* Add some padding */
-    border-radius: 5px; /* Rounded corners */
 }
 
 #battery {
@@ -70,37 +83,7 @@
   color: @red;
 }
 
-#backlight {
+#pulseaudio {
   color: @yellow;
 }
 
-#backlight, #battery {
-    border-radius: 0;
-}
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
-}
-
-#custom-music {
-  color: @mauve;
-  border-radius: 1rem;
-}
-
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
-}
-
-#custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
-}
-
-#tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
-}

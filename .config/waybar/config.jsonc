@@ -2,56 +2,86 @@
   "layer": "top",
   "position": "top",
   "height": 36,
-  "spacing": 4,
+  "spacing": 0,
   "margin-top": 10,
   "margin-left": 10,
   "margin-right": 10,
   "margin-bottom": 0,
   // Choose the order of the modules
-  "modules-center": [
+  "modules-left": [
     "sway/workspaces"
   ],
-  "modules-left": [
-    "custom/lock",
+  "modules-right": [
+    "custom/sleep",
     "custom/reboot",
     "custom/power"
   ],
-  "modules-right": [
+  "modules-center": [
     "network",
     "bluetooth",
     "pulseaudio",
     "memory",
     "cpu",
-    "custom/audio",
     "battery",
     "clock"
   ],
   // Configuration for individual modules
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "󰂯{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
   "sway/workspaces": {
     "persistent-workspaces": {
       "A": [],
       "B": [],
       "C": [],
-      "D": [],
-      "E": []
+      "D": [
+        "eDP-1"
+      ],
+      "E": [
+        "DP-1"
+      ]
     },
-    "format": "[{name}]",
+    "format": "{icon}",
+    "format-icons": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D",
+      "E": "E",
+      "F": "F",
+      "G": "G",
+      "H": "H",
+      "I": "I"
+    },
+    "all-outputs": true,
     "on-click": "activate",
     "disable-scroll": true,
     "disable-auto-back-and-forth": true,
     "alphabetical_sort": true
   },
-  "custom/lock": {
-    "format": "<span color='#8caaee'></span>",
+  "custom/sleep": {
+    "format": "󰒲",
     // TODO: fix this
     "on-click": "hyprlock"
   },
   "custom/reboot": {
-    "format": "<span color='#e5c890'></span>",
+    "format": "",
     "on-click": "systemctl reboot"
   },
   "custom/power": {
-    "format": "<span color='#e78284'></span>",
+    "format": "",
     "on-click": "systemctl poweroff"
   },
   "clock": {
@@ -83,7 +113,7 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    "format-charging": "⚡ {capacity}%",
+    "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": [
@@ -107,12 +137,12 @@
   },
   "memory": {
     "interval": "5",
-    "format": "[M {percentage:>2}%]",
+    "format": "RAM {percentage:>2}%",
     "max-length": 10
   },
   "cpu": {
     "interval": 1,
-    "format": "[C {icon0}{icon1}{icon2}{icon3} {usage:>2}%]",
+    "format": "CPU {usage:>2}%",
     "format-icons": [
       "▁",
       "▂",
@@ -125,18 +155,12 @@
     ]
   },
   "bluetooth": {
-    "format": " {status} ",
-    "format-connected": " {device_alias} ",
-    "format-connected-battery": " {device_alias}{device_battery_percentage}% ",
+    "format": "󰂯 {status} ",
+    "format-connected": "󰂯 {device_alias} ",
+    "format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}% ",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-  },
-  "custom/audio": {
-    "signal": 8,
-    "interval": "once",
-    "exec": "~/.config/sway/audio.sh",
-    "on-click": "pavucontrol"
   }
 }
