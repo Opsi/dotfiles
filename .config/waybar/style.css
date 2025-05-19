@@ -40,12 +40,16 @@ window#waybar {
   padding: 6px 12px;
   margin: 6px 3px;
 }
+
 #custom-power {
-  color: @red;
+  background-color: @red;
+  color: @base;
 }
+
 #custom-reboot {
   color: @yellow;
 }
+
 #custom-sleep {
   color: @blue;
 }
@@ -86,4 +90,3 @@ window#waybar {
 #pulseaudio {
   color: @yellow;
 }
-

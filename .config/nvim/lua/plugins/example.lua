@@ -1,16 +1,5 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-return {
-  {
-    "folke/snacks.nvim",
-    --@type snacks.Config
-    opts = {
-      explorer = {
-  
-      }
-    }
-  }
-}
 if true then return {} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
@@ -32,7 +21,6 @@ return {
   },
 
   -- change trouble config
-  {
     "folke/trouble.nvim",
     -- opts will be merged with the parent spec
     opts = { use_diagnostic_signs = true },

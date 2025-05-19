@@ -1,58 +1,12 @@
 # include custom sway config
 include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf"
 
-### Variables
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# favorite terminal
-set $term kitty
-
-#====================================#
-# Keyboard Input                     #
-#====================================#
-input "9610:371:SINO_WEALTH_Bluetooth_Keyboard" {
-    xkb_layout "de"
-    # Optional: Add xkb_variant if you use a specific German variant (like "nodeadkeys")
-    # xkb_variant "nodeadkeys"
-}
-input "1:1:AT_Translated_Set_2_keyboard" {
-    xkb_layout "de"
-    # Optional: Add xkb_variant if you use a specific German variant (like "nodeadkeys")
-    # xkb_variant "nodeadkeys"
-}
-input "2362:597:UNIW0001:00_093A:0255_Touchpad" {
-    tap enabled
-}
-
 #====================================#
 # Activate the panel                 #
 #====================================#
 # Set the waybar command for the application launcher:
 bar {
-    swaybar_command waybar
+  swaybar_command waybar
 }
 
-
-#===============================#
-# Keyboard Shortcuts (Hardware) #
-#===============================#
-# Audio
-bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+8 waybar"
-bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+8 waybar"
-bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+8 waybar"
-
-# Brightness
-bindsym XF86MonBrightnessDown exec light -U 10
-bindsym XF86MonBrightnessUp exec light -A 10
-
-
-#======#
-# Misc #
-#======#
-include /etc/sway/config-vars.d/*
 include /etc/sway/config.d/*

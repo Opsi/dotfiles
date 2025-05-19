@@ -73,7 +73,7 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   #alias dir='dir --color=auto'
   #alias vdir='vdir --color=auto'
@@ -122,7 +122,7 @@ export PATH=$PATH:~/go/bin
 
 # fzf key bindings
 source /usr/share/doc/fzf/examples/key-bindings.bash
-. "~/.deno/env"
+. "$HOME/.deno/env"
 # Created by `pipx` on 2024-10-17 12:27:35
 export PATH="$PATH:~/.local/bin"
 source <(kubectl completion bash)

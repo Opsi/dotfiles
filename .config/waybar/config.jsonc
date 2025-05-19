@@ -73,9 +73,8 @@
     "alphabetical_sort": true
   },
   "custom/sleep": {
-    "format": "󰒲",
-    // TODO: fix this
-    "on-click": "hyprlock"
+    "format": "",
+    "on-click": "systemctl suspend"
   },
   "custom/reboot": {
     "format": "",
@@ -85,6 +84,15 @@
     "format": "",
     "on-click": "systemctl poweroff"
   },
+  // TODO: make this work
+  // "custom/nuke": {
+  //   "format": "☢️ {}",
+  //   "exec": "~/.config/waybar/scripts/shutdown_countdown.sh",
+  //   "interval": 1,
+  //   "on-click": "~/.config/waybar/shutdown_countdown.sh run",
+  //   "on-click-right": "~/.config/waybar/shutdown_countdown.sh abort",
+  //   "tooltip": "Shutdown"
+  // },
   "clock": {
     "timezone": "Europe/Berlin",
     "locale": "de_DE.UTF-8",
