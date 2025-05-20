@@ -17,7 +17,7 @@ window#waybar {
   all: initial;
   min-width: 0;
   padding: 6px 12px;
-  margin: 6px 3px;
+  margin: 0px 0px;
   background-color: @base;
   color: @text;
 }
@@ -38,7 +38,7 @@ window#waybar {
 #custom-sleep {
   background-color: @surface0;
   padding: 6px 12px;
-  margin: 6px 3px;
+  margin: 0px 0px;
 }
 
 #custom-power {
@@ -64,7 +64,7 @@ window#waybar {
 #clock {
   background-color: @surface0;
   padding: 6px 12px;
-  margin: 6px 3px;
+  margin: 0px 0px;
 }
 
 #bluetooth {
