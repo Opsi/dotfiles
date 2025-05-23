@@ -119,6 +119,8 @@ fi
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # installed go packages
 export PATH=$PATH:~/go/bin
+# global npm packages
+export PATH=~/.npm-global/bin:$PATH
 
 # fzf key bindings
 source /usr/share/doc/fzf/examples/key-bindings.bash
