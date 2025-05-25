@@ -1,0 +1,12 @@
+alias \
+\
+c="clear" \
+v="nvim" \
+cat="batcat" \
+l="lsd -lh --group-directories-first" \
+ls="lsd -h --group-directories-first" \
+la="lsd -lah --group-directories-first" \
+grep="grep --color=auto" \
+mv="mv -i" \
+rm="rm -Iv" \
+p="ps aux | grep $1" \
