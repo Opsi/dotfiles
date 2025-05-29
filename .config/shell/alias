@@ -10,3 +10,12 @@ grep="grep --color=auto" \
 mv="mv -i" \
 rm="rm -Iv" \
 p="ps aux | grep $1" \
+ga='git add' \
+gc='git commit' \
+gca='gc --amend --no-edit' \
+gce='gc --amend' \
+gco='git checkout' \
+gn='git checkout -b' \
+gp='git push' \
+gs='git status --short' \
+gu='git pull' 
