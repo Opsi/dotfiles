@@ -44,15 +44,12 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# binds
 # Keybindings
-bindkey -e
-bindkey "^j" backward-word
-bindkey "^k" forward-word
-bindkey "^H" backward-kill-word
-# ctrl J & K for going up and down in prev commands
-bindkey "^J" history-search-forward
-bindkey "^K" history-search-backward
+bindkey -e  # Use Emacs keybindings as default
+bindkey "^[[1;5C" forward-word  # Ctrl + Right Arrow
+bindkey "^[[1;5D" backward-word # Ctrl + Left Arrow
+# auto suggestion
+bindkey "^ " autosuggest-accept
 
 # History
 HISTSIZE=5000
