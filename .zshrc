@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":${HOME}/.zsh/completions:"* ]]; then export FPATH="${HOME}/.zsh/completions:$FPATH"; fi
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -49,7 +52,7 @@ bindkey -e  # Use Emacs keybindings as default
 bindkey "^[[1;5C" forward-word  # Ctrl + Right Arrow
 bindkey "^[[1;5D" backward-word # Ctrl + Left Arrow
 # auto suggestion
-bindkey "^ " autosuggest-accept
+bindkey "^Y" autosuggest-accept
 
 # History
 HISTSIZE=5000
@@ -84,3 +87,4 @@ source /usr/share/doc/fzf/examples/completion.zsh
 # kubectl completion
 source <(kubectl completion zsh)
 
+. "${HOME}/.deno/env"

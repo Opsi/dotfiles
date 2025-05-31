@@ -124,7 +124,6 @@ export PATH=~/.npm-global/bin:$PATH
 
 # fzf key bindings
 source /usr/share/doc/fzf/examples/key-bindings.bash
-. "$HOME/.deno/env"
 # Created by `pipx` on 2024-10-17 12:27:35
 export PATH="$PATH:~/.local/bin"
 source <(kubectl completion bash)
@@ -133,3 +132,7 @@ complete -o default -F __start_kubectl k
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
+
+# deno
+. "${HOME}/.deno/env"
+source "${HOME}/.local/share/bash-completion/completions/deno.bash"
