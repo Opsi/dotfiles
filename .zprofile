@@ -17,6 +17,7 @@ export LC_TIME="de_DE.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_BIN_HOME="$HOME/.local/bin"
 
 # --- PATH Configuration ---
 
@@ -25,10 +26,9 @@ if [ -d "$HOME/bin" ]; then
   export PATH="$HOME/bin:$PATH"
 fi
 
-# Add pipx executables to the PATH if the directory exists
-# pipx installs executables in ~/.local/bin by default
-if [ -d "$HOME/.local/bin" ]; then
-  export PATH="$HOME/.local/bin:$PATH"
+# Add XDG bin directory to the PATH
+if [ -d "$XDG_BIN_HOME" ]; then
+  export PATH="$XDG_BIN_HOME:$PATH"
 fi
 
 # Add npm global install directory to the PATH
