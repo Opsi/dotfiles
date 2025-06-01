@@ -148,8 +148,9 @@
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    // TODO: fix this
-    "on-click-right": "bash ~/.config/rofi/wifi_menu/rofi_wifi_menu"
+    // The title is chosen so that we can configure sway to show a window with this
+    // title in floating mode.
+    "on-click-right": "kitty -T nm_tui_win -e nmtui"
   },
   "memory": {
     "interval": "5",
