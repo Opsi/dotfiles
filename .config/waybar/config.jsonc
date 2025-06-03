@@ -1,186 +1,149 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 24,
-  "spacing": 0,
-  "margin-top": 10,
-  "margin-left": 10,
-  "margin-right": 10,
-  "margin-bottom": -2,
-  // Choose the order of the modules
-  "modules-left": [
-    "sway/workspaces"
-  ],
-  "modules-right": [
-	"tray",
-    "custom/sleep",
-    "custom/reboot",
-    "custom/power"
-  ],
-  "modules-center": [
-    "network",
-    "bluetooth",
-    "pulseaudio",
-    "memory",
-    "cpu",
-    "battery",
-    "clock"
-  ],
-  // Configuration for individual modules
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "󰂯{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": {
-      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
-      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
-      "default": [
-        "",
-        ""
-      ]
-    },
-    "scroll-step": 1,
-    "on-click": "pavucontrol"
-  },
-  "sway/workspaces": {
-    "persistent-workspaces": {
-      "1": [
-        "eDP-1"
-      ],
-      "2": [
-        "eDP-1"
-      ],
-      "3": [
-        "eDP-1"
-      ],
-      "4": [
-        "DP-1"
-      ],
-      "5": [
-        "DP-1"
-      ],
-      "6": [
-        "DP-1"
-      ]
-    },
-    "format": "{icon}",
-    "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "0": "0"
-    },
-    "on-click": "activate",
-    "disable-scroll": true,
-    "disable-auto-back-and-forth": true
-  },
-  "custom/sleep": {
-    "format": "",
-    "on-click": "systemctl suspend"
-  },
-  "custom/reboot": {
-    "format": "",
-    "on-click": "systemctl reboot"
-  },
-  "custom/power": {
-    "format": "",
-    "on-click": "systemctl poweroff"
-  },
-  // TODO: make this work
-  // "custom/nuke": {
-  //   "format": "☢️ {}",
-  //   "exec": "~/.config/waybar/scripts/shutdown_countdown.sh",
-  //   "interval": 1,
-  //   "on-click": "~/.config/waybar/shutdown_countdown.sh run",
-  //   "on-click-right": "~/.config/waybar/shutdown_countdown.sh abort",
-  //   "tooltip": "Shutdown"
-  // },
-  "clock": {
-    "timezone": "Europe/Berlin",
-	"format": "{:%Y-%m-%d %H:%M}",
-    "locale": "de_DE.UTF-8",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "on-click": "mode",
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<span color='#8caaee'><b>{}</b></span>",
-        "days": "<span color='#c6d0f5'><b>{}</b></span>",
-        "weeks": "<span color='#f4b8e4'><b>W{:%W}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    },
-    "actions": {
-      "on-click-right": "mode"
-    }
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": " {signalStrength}%",
-    "format-ethernet": "Connected  ",
-    "tooltip-format": "{ifname}: {gwaddr}",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    // The title is chosen so that we can configure sway to show a window with this
-    // title in floating mode.
-    "on-click-right": "kitty -T nm_tui_win -e nmtui"
-  },
-  "memory": {
-    "interval": "5",
-    "format": "RAM {percentage:>2}%",
-    "max-length": 10
-  },
-  "cpu": {
-    "interval": 1,
-    "format": "CPU {usage:>2}%",
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ]
-  },
-  "bluetooth": {
-    "format": "󰂯 {status} ",
-    "format-connected": "󰂯 {device_alias} ",
-    "format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}% ",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click-right": "blueman-manager"
-  }
+	"layer": "top",
+	"position": "top",
+	"height": 24,
+	"spacing": 0,
+	"margin-top": 10,
+	"margin-left": 10,
+	"margin-right": 10,
+	"margin-bottom": -2,
+	// Choose the order of the modules
+	"modules-left": ["sway/workspaces"],
+	"modules-right": ["tray", "custom/sleep", "custom/reboot", "custom/power"],
+	"modules-center": [
+		"network",
+		"bluetooth",
+		"pulseaudio",
+		"memory",
+		"cpu",
+		"battery",
+		"clock"
+	],
+	// Configuration for individual modules
+	"pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "󰂯{volume}% {icon}",
+		"format-muted": "",
+		"format-icons": {
+			"alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+			"alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol"
+	},
+	"sway/workspaces": {
+		"persistent-workspaces": {
+			"1": ["eDP-1"],
+			"2": ["eDP-1"],
+			"3": ["eDP-1"],
+			"4": ["DP-1"],
+			"5": ["DP-1"],
+			"6": ["DP-1"]
+		},
+		"format": "{icon}",
+		"format-icons": {
+			"1": "1",
+			"2": "2",
+			"3": "3",
+			"4": "4",
+			"5": "5",
+			"6": "6",
+			"7": "7",
+			"8": "8",
+			"9": "9",
+			"0": "0"
+		},
+		"on-click": "activate",
+		"disable-scroll": true,
+		"disable-auto-back-and-forth": true
+	},
+	"custom/sleep": {
+		"format": "",
+		"on-click": "systemctl suspend"
+	},
+	"custom/reboot": {
+		"format": "",
+		"on-click": "systemctl reboot"
+	},
+	"custom/power": {
+		"format": "",
+		"on-click": "systemctl poweroff"
+	},
+	// TODO: make this work
+	// "custom/nuke": {
+	//   "format": "☢ {}",
+	//   "exec": "~/.config/waybar/scripts/shutdown_countdown.sh",
+	//   "interval": 1,
+	//   "on-click": "~/.config/waybar/shutdown_countdown.sh run",
+	//   "on-click-right": "~/.config/waybar/shutdown_countdown.sh abort",
+	//   "tooltip": "Shutdown"
+	// },
+	"clock": {
+		"timezone": "Europe/Berlin",
+		"format": "{:%Y-%m-%d %H:%M}",
+		"locale": "de_DE.UTF-8",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"on-click": "mode",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"on-click-right": "mode",
+			"format": {
+				"months": "<span color='#8caaee'><b>{}</b></span>",
+				"days": "<span color='#c6d0f5'><b>{}</b></span>",
+				"weeks": "<span color='#f4b8e4'><b>W{:%W}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode"
+		}
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"network": {
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"format-wifi": " {signalStrength}%",
+		"format-ethernet": "Connected  ",
+		"tooltip-format": "{ifname}: {gwaddr}",
+		"format-linked": "{ifname} (No IP)",
+		"format-disconnected": "Disconnected !",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		// The title is chosen so that we can configure sway to show a window with this
+		// title in floating mode.
+		"on-click-right": "kitty -T nm_tui_win -e nmtui"
+	},
+	"memory": {
+		"interval": "5",
+		"format": "RAM {percentage:>2}%",
+		"max-length": 10
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "CPU {usage:>2}%",
+		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+	},
+	"bluetooth": {
+		"format": "󰂯 {status} ",
+		"format-connected": "󰂯 {device_alias} ",
+		"format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}% ",
+		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+		"on-click-right": "blueman-manager"
+	}
 }
