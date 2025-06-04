@@ -136,3 +136,4 @@ export LANG="en_US.UTF-8"
 # deno
 . "${HOME}/.deno/env"
 source "${HOME}/.local/share/bash-completion/completions/deno.bash"
+. "$HOME/.cargo/env"
