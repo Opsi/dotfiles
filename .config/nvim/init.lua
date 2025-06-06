@@ -441,7 +441,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[f]ind [f]iles' })
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[f]ind by [g]rep' })
       vim.keymap.set('n', '<leader>fc', '<cmd>lua require("telescope.builtin").live_grep({ glob_pattern = "!{spec,test}"})<CR>', { desc = 'Live Grep Code' })
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[f]ind [b]uffers' })
+      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'find[ ]buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[f]ind [h]elp Tags' })
       vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = '[f]ind [s]ymbols' })
       vim.keymap.set('n', '<leader>fi', '<cmd>AdvancedGitSearch<CR>', { desc = 'AdvancedGitSearch' })
@@ -701,6 +701,9 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
         biome = {},
+        emmet_language_server = {
+          filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact' },
+        },
         --
 
         lua_ls = {
@@ -766,7 +769,7 @@ require('lazy').setup({
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[f]ormat buffer',
       },
     },
     opts = {
@@ -815,7 +818,8 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      -- TODO: check if this is useful for me or not
+      -- require('mini.surround').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

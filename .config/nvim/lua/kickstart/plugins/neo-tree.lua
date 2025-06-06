@@ -11,14 +11,14 @@ return {
   },
   lazy = false,
   keys = {
-    { '<leader>e', ':Neotree reveal right<CR>', desc = '[E]xplorer', silent = true },
+    { '-', ':Neotree reveal<CR>', desc = 'explorer', silent = true },
   },
   opts = {
     filesystem = {
       window = {
-        position = 'right',
+        position = 'float',
         mappings = {
-          ['e'] = 'close_window',
+          ['-'] = 'close_window',
         },
       },
     },
