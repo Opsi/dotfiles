@@ -1,63 +1,85 @@
 @import "frappe.css";
 
 * {
-  border: none;
-  border-radius: 0rem;
-  font-family: FiraCode Nerd Font, Fira Code;
-  font-size: 13px;
-  min-height: 0;
+	border: none;
+	border-radius: 0rem;
+	font-family: FiraCode Nerd Font, Fira Code;
+	font-size: 13px;
+	min-height: 0;
 }
 
 window#waybar {
-  background-color: transparent;
+	background-color: @mantle;
+	color: @overlay0;
+}
+#window,
+#workspaces {
+    margin: 0 4px;
 }
 
-/* Workspaces */
+tooltip {
+	background-color: @base;
+	border: 1px solid @surface1;
+}
+
+tooltip label {
+	color: @text;
+}
+
+button {
+	box-shadow: inset 0 -3px transparent;
+	border: none;
+	border-radius: 1;
+}
+
+button:hover {
+	background: inherit;
+	box-shadow: inset 0 -3px @text;
+}
+
 #workspaces button {
-  all: initial;
-  min-width: 0;
-  padding: 6px 12px;
-  margin: 0px 0px;
-  background-color: @base;
-  color: @text;
-}
-#tray {
-  border-radius: 4px;
-  margin: 6px 3px;
-  padding: 6px 12px;
-  background-color: #1e1e2e;
-  color: #181825;
-}
-#workspaces button.focused {
-  color: @base;
-  background-color: @pink;
+	padding: 0px 6px;
+	color: @text;
 }
 
 #workspaces button:hover {
-  background-color: @surface0;
-  color: @sky;
+	border-bottom: 3px solid @flamingo;
 }
 
-/* Modules left */
+#workspaces button:active {
+	background-color: @surface0;
+	border-bottom: 3px solid @blue;
+}
+
+#workspaces button.focused {
+	background-color: @surface0;
+	border-bottom: 3px solid @green;
+}
+
+#workspaces button.urgent {
+	background-color: @red;
+	color: @mantle;
+}
+
 #custom-power,
 #custom-reboot,
 #custom-sleep {
-  background-color: @surface0;
-  padding: 6px 12px;
-  margin: 0px 0px;
+	background-color: @surface0;
+	padding: 6px 12px;
+	margin: 0px 0px;
 }
 
 #custom-power {
-  background-color: @red;
-  color: @base;
+	background-color: @red;
+	color: @base;
 }
 
 #custom-reboot {
-  color: @yellow;
+	color: @yellow;
 }
 
 #custom-sleep {
-  color: @blue;
+	color: @blue;
 }
 
 /* Modules right */
@@ -68,31 +90,50 @@ window#waybar {
 #cpu,
 #battery,
 #clock {
-  background-color: @surface0;
-  padding: 6px 12px;
-  margin: 0px 0px;
+	padding: 6px 12px;
+	margin: 0px 0px;
+}
+
+#network {
+	color: @flamingo;
+	box-shadow: inset 0 -3px @flamingo;
+}
+
+#cpu {
+	color: @flamingo;
+	box-shadow: inset 0 -3px @flamingo;
+}
+
+#memory {
+	color: @flamingo;
+	box-shadow: inset 0 -3px @flamingo;
 }
 
 #bluetooth {
-  color: @blue;
+	color: @blue;
+	border-bottom: 3px solid @blue;
 }
 
 #clock {
-  color: @blue;
+	color: @maroon;
+	border-bottom: 3px solid @maroon;
 }
 
 #battery {
-  color: @green;
+	color: @green;
+	border-bottom: 3px solid @green;
 }
 
 #battery.charging {
-  color: @green;
+	color: @green;
 }
 
 #battery.warning:not(.charging) {
-  color: @red;
+	color: @red;
+	border-bottom: 3px solid @red;
 }
 
 #pulseaudio {
-  color: @yellow;
+	color: @yellow;
+	border-bottom: 3px solid @yellow;
 }

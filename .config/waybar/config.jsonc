@@ -2,22 +2,22 @@
 	"layer": "top",
 	"position": "top",
 	"height": 24,
-	"spacing": 0,
-	"margin-top": 10,
-	"margin-left": 10,
-	"margin-right": 10,
+	"spacing": 2,
 	"margin-bottom": -2,
 	// Choose the order of the modules
-	"modules-left": ["sway/workspaces"],
-	"modules-right": ["tray", "custom/sleep", "custom/reboot", "custom/power"],
-	"modules-center": [
+	"modules-left": ["sway/workspaces", "sway/window"],
+	"modules-center": [],
+	"modules-right": [
 		"network",
 		"bluetooth",
 		"pulseaudio",
 		"memory",
 		"cpu",
 		"battery",
-		"clock"
+		"clock",
+		"custom/sleep",
+		"custom/reboot",
+		"custom/power"
 	],
 	// Configuration for individual modules
 	"pulseaudio": {
@@ -57,6 +57,13 @@
 		"on-click": "activate",
 		"disable-scroll": true,
 		"disable-auto-back-and-forth": true
+	},
+	"sway/window": {
+		"max-length": 255
+	},
+	"tray": {
+		"icon-size": 13,
+		"spacing": 10
 	},
 	"custom/sleep": {
 		"format": "",
