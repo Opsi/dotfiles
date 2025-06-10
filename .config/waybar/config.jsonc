@@ -41,7 +41,7 @@
 			"5": ["DP-1"],
 			"6": ["DP-1"]
 		},
-		"format": "{icon}",
+		"format": "[<span color=\"#ca9ee6\">{icon}</span>]",
 		"format-icons": {
 			"1": "1",
 			"2": "2",
@@ -52,7 +52,8 @@
 			"7": "7",
 			"8": "8",
 			"9": "9",
-			"0": "0"
+			"0": "0",
+			"focused": "<span color=\"#8caaee\">-</span>"
 		},
 		"on-click": "activate",
 		"disable-scroll": true,
