@@ -51,8 +51,6 @@ zinit cdreplay -q
 bindkey -e  # Use Emacs keybindings as default
 bindkey "^[[1;5C" forward-word  # Ctrl + Right Arrow
 bindkey "^[[1;5D" backward-word # Ctrl + Left Arrow
-# auto suggestion
-bindkey "^Y" autosuggest-accept
 
 # History
 HISTSIZE=5000

@@ -1,12 +1,4 @@
 return {
-  -- {
-  --   'olimorris/codecompanion.nvim',
-  --   opts = {},
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-treesitter/nvim-treesitter',
-  --   },
-  -- },
   {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
@@ -15,8 +7,8 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
       filetypes = {
-        markdown = true,
-        help = true,
+        markdown = false,
+        Avante = false,
       },
     },
   },
