@@ -86,3 +86,6 @@ source /usr/share/doc/fzf/examples/completion.zsh
 source <(kubectl completion zsh)
 
 . "${HOME}/.deno/env"
+
+# zoxide setup
+eval "$(zoxide init zsh)"
