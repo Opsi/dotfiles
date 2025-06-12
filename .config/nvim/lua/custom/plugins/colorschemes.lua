@@ -9,15 +9,25 @@ return {
       vim.cmd.colorscheme 'catppuccin-frappe'
     end,
   },
-  { 'nyoom-engineering/oxocarbon.nvim' },
-  {
-    'tokyonight.nvim',
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = 'transparent',
-        floats = 'transparent',
-      },
-    },
-  },
+  -- { 'nyoom-engineering/oxocarbon.nvim' },
+  -- {
+  --   'tokyonight.nvim',
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = 'transparent',
+  --       floats = 'transparent',
+  --     },
+  --   },
+  -- },
+  -- {
+  --   'jesseleite/nvim-noirbuddy',
+  --   dependencies = {
+  --     { 'tjdevries/colorbuddy.nvim' },
+  --   },
+  --   opts = {
+  --     -- All of your `setup(opts)` will go here
+  --   },
+  -- },
+  -- { 'sainnhe/everforest' },
 }
