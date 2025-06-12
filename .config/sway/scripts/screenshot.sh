@@ -37,7 +37,7 @@ fi
 case "$MODE" in
   rect-clip)
     grim -g "$(slurp)" -t png - | wl-copy
-    notify-send "Screenshot copied to clipboard"
+    notify-send --urgency=low "󰄀 Region" "Copied to clipboard"
     ;;
   rect-swappy)
     grim -g "$(slurp)" -t png - | swappy -f -
@@ -46,13 +46,12 @@ case "$MODE" in
     # Extract output name
     OUTPUT_NAME="${MODE#output-clip-}"
     grim -o "$OUTPUT_NAME" -t png - | wl-copy
-    notify-send "Screenshot of output $OUTPUT_NAME copied to clipboard"
+    notify-send --urgency=low "󰄀 $OUTPUT_NAME" "Copied to clipboard"
     ;;
   output-swappy-*)
     # Extract output name
     OUTPUT_NAME="${MODE#output-swappy-}"
     grim -o "$OUTPUT_NAME" -t png - | swappy -f -
-    notify-send "Screenshot of output $OUTPUT_NAME saved to swappy"
     ;;
   *)
     echo "Error: Unknown mode '$MODE'."
