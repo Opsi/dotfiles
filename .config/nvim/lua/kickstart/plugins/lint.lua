@@ -7,7 +7,15 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        python = { 'ruff', 'pyright' },
+        python = { 'ruff', 'basedpyright' },
+        astro = { 'biome' },
+        css = { 'biome' },
+        javascript = { 'biome' },
+        javascriptreact = { 'biome' },
+        json = { 'biome' },
+        jsonc = { 'biome' },
+        typescript = { 'biome' },
+        typescriptreact = { 'biome' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

@@ -452,6 +452,18 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = '[f]ind [g]it Commits for [b]uffer' })
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[f]ind [k]eymaps' })
 
+      -- Find TODO/FIXME (case sensitive)
+      vim.keymap.set('n', '<leader>ft', function()
+        require('telescope.builtin').live_grep {
+          additional_args = function()
+            return { '-P' } -- Enable PCRE regex
+          end,
+          default_text = 'TODO|FIXME',
+        }
+      end, { desc = '[f]ind [T]ODO/FIXME' })
+
+      -- Find git status files (changed, new, etc.)
+      vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[g]it [s]tatus files' })
       -- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[f]ind in [d]iagnostics' })
 
@@ -691,7 +703,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
-        pyright = {},
+        basedpyright = {},
         rust_analyzer = {},
         astro = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
