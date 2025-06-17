@@ -9,7 +9,7 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'catppuccin-frappe',
+          theme = 'bamboo',
         },
         sections = {
           lualine_a = { 'mode' },
