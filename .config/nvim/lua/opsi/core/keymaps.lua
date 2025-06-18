@@ -17,6 +17,12 @@ keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window'
 keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- tab management
+keymap.set('n', '<leader>to', '<cmd>tabnew<CR>', { desc = '[o]pen new tab' }) -- open new tab
+keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'E[x]it current tab' }) -- close current tab
+keymap.set('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to [n]ext tab' }) --  go to next tab
+keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to [p]revious tab' }) --  go to previous tab
+
 -- TODO: delete if it is 2026-06-18 and you have never used this
 -- diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })

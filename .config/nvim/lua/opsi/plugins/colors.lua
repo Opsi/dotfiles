@@ -1,36 +1,4 @@
 return {
-  -- {
-  --   'catppuccin/nvim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   opts = {
-  --     transparent_background = true,
-  --   },
-  --   config = function()
-  --     vim.cmd.colorscheme 'catppuccin-frappe'
-  --   end,
-  -- },
-  -- {
-  --   'everviolet/nvim',
-  --   name = 'evergarden',
-  --   priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
-  --   opts = {
-  --     theme = {
-  --       variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
-  --       accent = 'green',
-  --     },
-  --     editor = {
-  --       transparent_background = false,
-  --       sign = { color = 'none' },
-  --       float = {
-  --         color = 'mantle',
-  --         invert_border = false,
-  --       },
-  --       completion = {
-  --         color = 'surface0',
-  --       },
-  --     },
-  --   },
-  -- },
   {
     'ribru17/bamboo.nvim',
     lazy = false,
@@ -81,6 +49,39 @@ return {
       },
     },
   },
+  -- {
+  --   'catppuccin/nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   opts = {
+  --     transparent_background = true,
+  --   },
+  --   config = function()
+  --     vim.cmd.colorscheme 'catppuccin-frappe'
+  --   end,
+  -- },
+  -- {
+  --   'everviolet/nvim',
+  --   name = 'evergarden',
+  --   priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
+  --   opts = {
+  --     theme = {
+  --       variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
+  --       accent = 'green',
+  --     },
+  --     editor = {
+  --       transparent_background = false,
+  --       sign = { color = 'none' },
+  --       float = {
+  --         color = 'mantle',
+  --         invert_border = false,
+  --       },
+  --       completion = {
+  --         color = 'surface0',
+  --       },
+  --     },
+  --   },
+  -- },
+
   -- { 'comfysage/twilight-moon' },
   -- { 'rebelot/kanagawa.nvim' },
   -- { 'nyoom-engineering/oxocarbon.nvim' },
