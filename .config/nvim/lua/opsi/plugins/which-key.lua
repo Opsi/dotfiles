@@ -50,6 +50,7 @@ return {
         { '<leader>t', group = '[T]abs' },
         --TODO: is this right?
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>w', group = 'Sessions', mode = { 'n', 'v' } },
       },
     },
   },

@@ -1,9 +1,5 @@
 return {
   {
-    'karb94/neoscroll.nvim',
-    opts = {},
-  },
-  {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
@@ -18,8 +14,22 @@ return {
           lualine_x = {
             { 'fileformat', 'filetype' },
             {
-              require('noice').api.statusline.mode.get,
-              cond = require('noice').api.statusline.mode.has,
+              require('noice').api.status.message.get_hl,
+              cond = require('noice').api.status.message.has,
+            },
+            {
+              require('noice').api.status.command.get,
+              cond = require('noice').api.status.command.has,
+              color = { fg = '#ff9e64' },
+            },
+            {
+              require('noice').api.status.mode.get,
+              cond = require('noice').api.status.mode.has,
+              color = { fg = '#ff9e64' },
+            },
+            {
+              require('noice').api.status.search.get,
+              cond = require('noice').api.status.search.has,
               color = { fg = '#ff9e64' },
             },
           },
