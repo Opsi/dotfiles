@@ -21,6 +21,7 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      'folke/todo-comments.nvim',
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -67,19 +68,10 @@ return {
       keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = '[f]ind [s]ymbols' })
       keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = '[f]ind [r]ecent files' })
       keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[f]ind [k]eymaps' })
+      keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<cr>', { desc = '[f]ind [t]odos' })
 
       keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[f]ind in [g]it [c]ommits' })
       keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = '[f]ind [g]it Commits for [b]uffer' })
-
-      -- Find TODO/FIXME (case sensitive)
-      keymap.set('n', '<leader>ft', function()
-        require('telescope.builtin').live_grep {
-          additional_args = function()
-            return { '-P' } -- Enable PCRE regex
-          end,
-          default_text = 'TODO|FIXME',
-        }
-      end, { desc = '[f]ind [T]ODO/FIXME' })
 
       -- Find git status files (changed, new, etc.)
       keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[g]it [s]tatus files' })
