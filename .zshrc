@@ -87,8 +87,19 @@ source <(kubectl completion zsh)
 
 . "${HOME}/.deno/env"
 
-# zoxide setup
+# zoxide
 eval "$(zoxide init zsh)"
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# claude
 alias claude="/home/robinw/.claude/local/claude"
 
 export NVM_DIR="$HOME/.config/nvm"
