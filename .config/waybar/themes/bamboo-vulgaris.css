@@ -1,0 +1,40 @@
+/* The defined colors */
+@define-color bg0 #252623;
+@define-color bg1 #2f312c;
+@define-color bg2 #383b35;
+@define-color bg3 #3a3d37;
+@define-color fg #f1e9d2;
+@define-color purple #aaaaff;
+@define-color green #8fb573;
+@define-color orange #ff9966;
+@define-color blue #57a5e5;
+@define-color yellow #dbb651;
+@define-color cyan #70c2be;
+@define-color red #e75a7c;
+@define-color grey #5b5e5a;
+@define-color light_grey #838781;
+
+@define-color bg_d #1c1e1b;
+@define-color bg_blue #68aee8;
+@define-color bg_yellow #e2c792;
+@define-color purple #aaaaff;
+@define-color bright_purple #df73ff;
+@define-color light_blue #96c7ef;
+@define-color coral #f08080;
+
+/* waybar usage */
+@define-color waybar-bg @bg0;
+@define-color waybar-bg-hl @bg2;
+@define-color waybar-title @yellow;
+@define-color waybar-text @fg;
+@define-color waybar-urgent-bg @orange;
+@define-color waybar-urgent-text @bg_d;
+
+@define-color waybar-ws-hover-border @purple;
+@define-color waybar-ws-focused-border @green;
+
+@define-color waybar-tt-border @purple;
+
+@define-color waybar-c1 @purple;
+@define-color waybar-c2 @blue;
+@define-color waybar-c3 @green;
