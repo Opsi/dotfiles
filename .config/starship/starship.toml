@@ -1,0 +1,68 @@
+format = """
+$directory\
+[](fg:color1_bg bg:transparent)\
+[](fg:color2_bg bg:transparent)\
+$git_branch\
+$git_status\
+[](fg:color2_bg bg:transparent)\
+[](fg:color3_bg bg:transparent)\
+$time\
+[](fg:color3_bg bg:transparent)\
+\n$character
+"""
+
+palette = 'bamboo'
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+[directory]
+style = "bg:color1_bg fg:color1_fg"
+format = "[ 󰯙  $path ]($style)"
+truncation_length = 6
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
+
+[palettes.bamboo]
+color1_bg = "#8fb573"
+color1_fg = "#0f0800"
+color2_bg = "#dbb651"
+color2_fg = "#0f0800"
+color3_bg = "#aaaaff"
+color3_fg = "#0f0800"
+green = "#8fb573"
+yellow = "#dbb651"
+purple = "#aaaaff"
+red = "#e75a7c"
+blue = "#57a5e5"
+
+[git_branch]
+symbol = ""
+style = "bg:color2_bg fg:color2_fg"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:color2_bg fg:color2_fg"
+format = '[$all_status$ahead_behind ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:color3_bg fg:color3_fg"
+format = '[  $time ]($style)'
+
+[character]
+success_symbol = '[❯](bold green) '
+error_symbol = '[❯](bold red) '
