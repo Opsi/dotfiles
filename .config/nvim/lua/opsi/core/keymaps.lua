@@ -25,4 +25,7 @@ keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to [p]revious tab' }
 
 -- TODO: delete if it is 2026-06-18 and you have never used this
 -- diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- make the umlauts useful
+keymap.set('n', 'ö', ':', { noremap = true, silent = true })

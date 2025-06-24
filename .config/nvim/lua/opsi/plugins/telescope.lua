@@ -43,6 +43,11 @@ return {
             -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
             find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
           },
+          live_grep = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            glob_pattern = '!**/.git/*',
+            additional_args = { '--hidden' },
+          },
         },
         extensions = {
           ['ui-select'] = {

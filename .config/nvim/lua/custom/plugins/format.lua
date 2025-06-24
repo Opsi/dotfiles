@@ -32,6 +32,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         jsonc = { 'biome' },
+        css = { 'biome' },
         -- Conform can also run multiple formatters sequentially
         python = {
           -- To fix auto-fixable lint errors.
