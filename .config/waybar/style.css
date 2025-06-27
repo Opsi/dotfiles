@@ -1,4 +1,6 @@
-@import "frappe.css";
+/* choose theme */
+/* @import "themes/catppuccin-frappe.css"; */
+@import "themes/bamboo-vulgaris.css";
 
 * {
 	border: none;
@@ -9,66 +11,67 @@
 }
 
 window#waybar {
-	background-color: @mantle;
-	color: @overlay0;
+	background-color: @waybar-bg;
+	color: @waybar-title;
 }
+
 #window,
 #workspaces {
     margin: 0 4px;
 }
 
 tooltip {
-	background-color: @base;
-	border: 1px solid @surface1;
+	background-color: @waybar-bg-hl;
+	border: 1px solid @waybar-tt-border;
 }
 
 tooltip label {
-	color: @text;
+	color: @waybar-text;
 }
 
 button:hover {
 	background: inherit;
-	box-shadow: inset 0 -3px @text;
 }
 
 #workspaces button {
 	padding: 0px 6px;
-	color: @text;
+	color: @waybar-text;
 }
 
 #workspaces button:hover {
-	border-bottom: 3px solid @flamingo;
+  background-color: @waybar-bg-hl;
+	border-bottom: 3px solid @waybar-ws-hover-border;
 }
 
 #workspaces button.focused {
-	background-color: @base;
-	border-bottom: 3px solid @blue;
+	background-color: @waybar-bg-hl;
+	border-bottom: 3px solid @waybar-ws-focused-border;
 }
 
 #workspaces button.urgent {
-	background-color: @red;
-	color: @mantle;
+	background-color: @waybar-urgent-bg;
+	color: @waybar-urgent-text;
 }
 
 #custom-power,
 #custom-reboot,
 #custom-sleep {
-	background-color: @surface0;
+	background-color: @waybar-bg-hl;
 	padding: 6px 12px;
 	margin: 0px 0px;
 }
 
 #custom-power {
-	background-color: @red;
-	color: @base;
+	background-color: @waybar-urgent-bg;
+	color: @waybar-urgent-text;
 }
 
 #custom-reboot {
-	color: @yellow;
+	color: @waybar-c3;
 }
 
 #custom-sleep {
-	color: @blue;
+	color: @waybar-c2;
 }
 
 /* Modules right */
@@ -84,45 +87,46 @@ button:hover {
 }
 
 #network {
-	color: @mauve;
-	box-shadow: inset 0 -3px @mauve;
+	color: @waybar-c1;
+	box-shadow: inset 0 -3px @waybar-c1;
 }
 
 #cpu {
-	color: @blue;
-	box-shadow: inset 0 -3px @blue;
+	color: @waybar-c2;
+	box-shadow: inset 0 -3px @waybar-c2;
 }
 
 #memory {
-	color: @mauve;
-	box-shadow: inset 0 -3px @mauve;
+	color: @waybar-c1;
+	box-shadow: inset 0 -3px @waybar-c1;
 }
 
 #bluetooth {
-	color: @blue;
-	border-bottom: 3px solid @blue;
+	color: @waybar-c2;
+	border-bottom: 3px solid @waybar-c2;
 }
 
 #clock {
-	color: @mauve;
-	border-bottom: 3px solid @mauve;
+	color: @waybar-c1;
+	border-bottom: 3px solid @waybar-c1;
 }
 
 #battery {
-	color: @green;
-	border-bottom: 3px solid @green;
+	color: @waybar-c3;
+	border-bottom: 3px solid @waybar-c3;
 }
 
 #battery.charging {
-	color: @green;
+	color: @waybar-c3;
 }
 
 #battery.warning:not(.charging) {
-	color: @red;
-	border-bottom: 3px solid @red;
+  background-color: @waybar-urgent-bg;
+	color: @waybar-urgent-text;
+	border-bottom: 3px solid @waybar-urgent-text;
 }
 
 #pulseaudio {
-	color: @green;
-	border-bottom: 3px solid @green;
+	color: @waybar-c3;
+	border-bottom: 3px solid @waybar-c3;
 }

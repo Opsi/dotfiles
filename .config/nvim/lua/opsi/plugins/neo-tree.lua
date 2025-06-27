@@ -14,7 +14,20 @@ return {
     { '-', ':Neotree reveal<CR>', desc = 'explorer', silent = true },
   },
   opts = {
+    default_component_configs = {
+      indent = {
+        with_expanders = true,
+        expander_collapsed = '',
+        expander_expanded = '',
+        expander_highlight = 'NeoTreeExpander',
+      },
+    },
     filesystem = {
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_hidden = false,
+      },
       window = {
         position = 'float',
         mappings = {

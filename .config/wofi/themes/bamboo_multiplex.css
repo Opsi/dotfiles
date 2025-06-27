@@ -1,0 +1,129 @@
+@define-color background #232923;
+@define-color foreground #ece1c0;
+@define-color red #dc4f62;
+@define-color green #81af58;
+@define-color yellow #ceba49;
+@define-color blue #409cdc;
+@define-color magenta #a09af8;
+@define-color cyan #68baae;
+@define-color white #ece1c0;
+@define-color black #171f17;
+@define-color bright-black #5a5e5a;
+@define-color bright-red #dc4f62;
+@define-color bright-green #81af58;
+@define-color bright-yellow #ceba49;
+@define-color bright-blue #409cdc;
+@define-color bright-magenta #a09af8;
+@define-color bright-cyan #68baae;
+@define-color bright-white #fff8f0;
+@define-color cursor-bg #fff8f0;
+@define-color cursor-fg #0f0800;
+@define-color scrollbar-thumb #171f17;
+@define-color selection-bg #5a5e5a;
+@define-color selection-fg #ece1c0;
+@define-color split #818781;
+@define-color compose-cursor #ef9946;
+@define-color visual-bell #363b35;
+
+* {
+    font-family: 'Inconsolata Nerd Font', monospace;
+    font-size: 14px;
+}
+
+window {
+    margin: 0px;
+    padding: 10px;
+    border: 0.16em solid @blue; /* Changed from @lavender */
+    border-radius: 0.1em;
+    background-color: @background; /* Changed from @base */
+    animation: slideIn 0.5s ease-in-out both;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#inner-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: @background; /* Changed from @base */
+    animation: fadeIn 0.5s ease-in-out both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#outer-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: @background; /* Changed from @base */
+}
+
+#scroll {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+    background-color: @background; /* Changed from @base */
+}
+
+#input {
+    margin: 5px 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 0.1em;
+    color: @foreground; /* Changed from @text */
+    background-color: @background; /* Changed from @base */
+    animation: fadeIn 0.5s ease-in-out both;
+}
+
+#input image {
+    border: none;
+    color: @red;
+}
+
+#input * {
+    outline: 4px solid @red !important;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: @foreground; /* Changed from @text */
+    animation: fadeIn 0.5s ease-in-out both;
+}
+
+#entry {
+    background-color: @background; /* Changed from @base */
+}
+
+#entry arrow {
+    border: none;
+    color: @blue; /* Changed from @lavender */
+}
+
+#entry:selected {
+    border: 0.11em solid @blue; /* Changed from @lavender */
+}
+
+#entry:selected #text {
+    color: @magenta; /* Changed from @mauve */
+}
+
+#entry:drop(active) {
+    background-color: @blue !important; /* Changed from @lavender */
+}
