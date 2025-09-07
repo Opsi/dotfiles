@@ -32,6 +32,10 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         jsonc = { 'biome' },
+        javascript = { 'biome' },
+        javascriptreact = { 'biome' },
+        typescript = { 'biome' },
+        typescriptreact = { 'biome' },
         css = { 'biome' },
         -- Conform can also run multiple formatters sequentially
         python = {
@@ -42,6 +46,7 @@ return {
           -- To organize the imports.
           'ruff_organize_imports',
         },
+        zig = { 'zls' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },

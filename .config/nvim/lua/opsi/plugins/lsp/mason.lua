@@ -37,6 +37,7 @@ return {
           'rust-analyzer',
           'stylua',
           'tailwindcss-language-server',
+          'zls',
         },
       }
     end,
