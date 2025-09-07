@@ -63,6 +63,9 @@ opt.undofile = true
 -- Decrease mapped sequence wait time
 opt.timeoutlen = 300
 
+-- allow cursor to wrap to next/prev line with arrows
+opt.whichwrap = '<,>,[,],b,s'
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
