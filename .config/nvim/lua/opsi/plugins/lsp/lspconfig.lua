@@ -167,8 +167,14 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         gdtoolkit = {},
-        biome = {
-          filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'json' },
+        biome = {},
+        jsonls = {
+          filetypes = { 'json', 'jsonc' },
+          settings = {
+            json = {
+              validate = { enable = true },
+            },
+          },
         },
         emmet_language_server = {
           filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact' },

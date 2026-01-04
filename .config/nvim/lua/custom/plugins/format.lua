@@ -31,12 +31,13 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        jsonc = { 'biome' },
-        javascript = { 'biome' },
-        javascriptreact = { 'biome' },
-        typescript = { 'biome' },
-        typescriptreact = { 'biome' },
         css = { 'biome' },
+        json = { 'biome' },
+        jsonc = { 'biome' },
+        javascript = { 'biome', 'biome-check', 'biome-organize-imports' },
+        javascriptreact = { 'biome', 'biome-check', 'biome-organize-imports' },
+        typescript = { 'biome', 'biome-check', 'biome-organize-imports' },
+        typescriptreact = { 'biome', 'biome-check', 'biome-organize-imports' },
         -- Conform can also run multiple formatters sequentially
         python = {
           -- To fix auto-fixable lint errors.
