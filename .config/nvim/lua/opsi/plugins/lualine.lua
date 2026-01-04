@@ -5,7 +5,7 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'bamboo',
+          theme = 'everforest',
         },
         sections = {
           lualine_a = { 'mode' },

@@ -1,16 +1,16 @@
 return {
-  {
-    'ribru17/bamboo.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('bamboo').setup {
-        style = 'multiplex',
-        transparent = false,
-      }
-      require('bamboo').load()
-    end,
-  },
+  -- {
+  --   'ribru17/bamboo.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('bamboo').setup {
+  --       style = 'multiplex',
+  --       transparent = false,
+  --     }
+  --     require('bamboo').load()
+  --   end,
+  -- },
   -- {
   --   'catppuccin/nvim',
   --   priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -70,11 +70,29 @@ return {
   --   'sainnhe/everforest',
   --   lazy = false,
   --   priority = 1000,
+  --   opts = {
+  --     background = 'hard',
+  --     italics = true,
+  --     transparent = true,
+  --   },
   --   config = function()
-  --     -- Optionally configure and load the colorscheme
-  --     -- directly inside the plugin declaration.
-  --     vim.g.everforest_enable_italic = '1'
-  --     vim.g.everforest_background = 'hard'
+  --     vim.cmd.colorscheme 'everforest'
   --   end,
   -- },
+  {
+    'neanias/everforest-nvim',
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require('everforest').setup {
+        background = 'hard',
+        transparent_background_level = 0,
+        italics = true,
+        show_eob = true,
+      }
+      vim.cmd.colorscheme 'everforest'
+    end,
+  },
 }

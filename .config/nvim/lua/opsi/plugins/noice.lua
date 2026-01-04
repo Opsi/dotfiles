@@ -5,7 +5,7 @@ return {
     event = 'VeryLazy',
     opts = {
       presets = {
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        lsp_doc_border = true, -- add a border to hover docs and signature help
       },
     },
     dependencies = {

@@ -2,7 +2,7 @@ alias \
 \
 c="clear" \
 v="nvim" \
-cat="batcat" \
+cat="bat" \
 l="lsd -lh --group-directories-first" \
 ls="lsd -h --group-directories-first" \
 la="lsd -lah --group-directories-first" \
@@ -18,4 +18,5 @@ gco='git checkout' \
 gn='git checkout -b' \
 gp='git push' \
 gs='git status --short' \
-gu='git pull' 
+gu='git pull' \
+lg="lazygit"

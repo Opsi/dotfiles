@@ -10,7 +10,7 @@ return {
 
     local keymap = vim.keymap
 
-    keymap.set('n', '<leader>wr', '<cmd>SessionRestore<CR>', { desc = '[r]estore session for cwd' }) -- restore last workspace session for current directory
-    keymap.set('n', '<leader>ws', '<cmd>SessionSave<CR>', { desc = '[s]ave session for auto session root dir' }) -- save workspace session for current working directory
+    keymap.set('n', '<leader>wr', '<cmd>AutoSession restore<CR>', { desc = '[r]estore session for cwd' }) -- restore last workspace session for current directory
+    keymap.set('n', '<leader>ws', '<cmd>AutoSession save<CR>', { desc = '[s]ave session for auto session root dir' }) -- save workspace session for current working directory
   end,
 }

@@ -14,7 +14,14 @@ return {
       'saghen/blink.cmp',
     },
     config = function()
-      local keymap = vim.keymap
+      vim.filetype.add {
+        extension = {
+          jinja = 'jinja',
+          jinja2 = 'jinja',
+          j2 = 'jinja',
+          py = 'python',
+        },
+      }
 
       --  This function gets run when an LSP attaches to a particular buffer.
       --    That is to say, every time a new file is opened that is associated with
@@ -161,10 +168,13 @@ return {
         --
         gdtoolkit = {},
         biome = {
-          filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css' },
+          filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'json' },
         },
         emmet_language_server = {
           filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact' },
+        },
+        jinja_lsp = {
+          filetypes = { 'jinja', 'rust', 'python' },
         },
         --
 

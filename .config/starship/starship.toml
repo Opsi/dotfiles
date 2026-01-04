@@ -11,7 +11,7 @@ $time\
 \n$character
 """
 
-palette = 'bamboo'
+palette = 'everforestdarkhard'
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
@@ -48,6 +48,20 @@ purple = "#aaaaff"
 red = "#e75a7c"
 blue = "#57a5e5"
 
+[palettes.everforestdarkhard]
+color1_bg = "#83c092"
+color1_fg = "#272e33"
+color2_bg = "#dbbc7f"
+color2_fg = "#272e33"
+color3_bg = "#d699b6"
+color3_fg = "#272e33"
+green = "#a7c080"
+yellow = "#dbbc7f"
+purple = "#d699b6"
+red = "#e67e80"
+blue = "#7fbbb3"
+cyan = "#83c092"
+
 [git_branch]
 symbol = ""
 style = "bg:color2_bg fg:color2_fg"
@@ -64,5 +78,5 @@ style = "bg:color3_bg fg:color3_fg"
 format = '[  $time ]($style)'
 
 [character]
-success_symbol = '[❯](bold green) '
+success_symbol = '[❯](bold cyan) '
 error_symbol = '[❯](bold red) '
