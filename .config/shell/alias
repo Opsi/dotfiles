@@ -19,4 +19,6 @@ gn='git checkout -b' \
 gp='git push' \
 gs='git status --short' \
 gu='git pull' \
-lg="lazygit"
+lg="lazygit" \
+up='sudo dnf update -y && flatpak update -y' \
+open='xdg-open'

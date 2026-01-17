@@ -41,6 +41,27 @@ zinit cdreplay -q
 bindkey -e  # Use Emacs keybindings as default
 bindkey "^[[1;5C" forward-word  # Ctrl + Right Arrow
 bindkey "^[[1;5D" backward-word # Ctrl + Left Arrow
+# edit command in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+# magic space to expand history like "!!" or "!$"
+bindkey ' ' magic-space
+
+# suffix aliases to open files by extension
+alias -s json='$EDITOR'
+alias -s yaml='bat -l yaml'
+alias -s md=bat
+alias -s txt=bat
+alias -s log='$EDITOR'
+alias -s py='$EDITOR'
+alias -s js='$EDITOR'
+alias -s ts='$EDITOR'
+alias -s tsx='$EDITOR'
+alias -s html=xdg-open
+alias -s pdf=xdg-open
+alias -s mp4=xdg-open
+alias -s png=xdg-open
 
 # History
 HISTSIZE=5000
