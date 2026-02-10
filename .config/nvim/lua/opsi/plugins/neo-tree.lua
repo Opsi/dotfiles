@@ -14,6 +14,15 @@ return {
     { '-', ':Neotree reveal<CR>', desc = 'explorer', silent = true },
   },
   opts = {
+    event_handlers = {
+      {
+        event = 'neo_tree_buffer_enter',
+        handler = function()
+          vim.opt_local.number = true
+          vim.opt_local.relativenumber = true
+        end,
+      },
+    },
     default_component_configs = {
       indent = {
         with_expanders = true,
