@@ -39,6 +39,7 @@ return {
         'python',
         'query',
         'regex',
+        'rust',
         'svelte',
         'tsx',
         'typescript',
