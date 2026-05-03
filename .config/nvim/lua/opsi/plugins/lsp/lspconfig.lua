@@ -47,6 +47,12 @@ return {
           map('gt', require('telescope.builtin').lsp_type_definitions, '[g]oto [t]ype Definition')
           map('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction', { 'n', 'x' })
+          map('<leader>co', function()
+            vim.lsp.buf.code_action {
+              context = { only = { 'source.organizeImports' } },
+              apply = true,
+            }
+          end, '[c]ode [o]rganize Imports')
 
           -- TODO: find out if this can be moved to telescope or if the document symbol function from
           -- telescope needs to be moved here
