@@ -10,7 +10,7 @@ return {
         version = '2.*',
         build = 'make install_jsregexp',
       },
-      'fang2hou/blink-copilot',
+      -- 'fang2hou/blink-copilot',
       'folke/lazydev.nvim',
       'rafamadriz/friendly-snippets',
     },
@@ -38,18 +38,18 @@ return {
         default = {
           'lsp',
           'snippets',
-          'copilot',
+          -- 'copilot',
           'path',
           'buffer',
         },
         providers = {
           lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
-          copilot = {
-            name = 'Copilot',
-            module = 'blink-copilot',
-            score_offset = 100,
-            async = true,
-          },
+          -- copilot = {
+          --   name = 'Copilot',
+          --   module = 'blink-copilot',
+          --   score_offset = 100,
+          --   async = true,
+          -- },
         },
         per_filetype = {
           codecompanion = { 'codecompanion' },
