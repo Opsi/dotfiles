@@ -10,6 +10,13 @@ keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight
 keymap.set('n', '<leader>+', '<C-a>', { desc = 'Increment number' }) -- increment
 keymap.set('n', '<leader>-', '<C-x>', { desc = 'Decrement number' }) -- decrement
 
+-- move lines in normal mode
+vim.keymap.set('n', '<C-Down>', ':m .+1<CR>==', { desc = 'Move line down' })
+vim.keymap.set('n', '<C-Up>', ':m .-2<CR>==', { desc = 'Move line up' })
+-- move lines in visual mode
+vim.keymap.set('v', '<C-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+vim.keymap.set('v', '<C-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
+
 -- window management
 -- use CTRL+<hjkl> to switch between windows
 keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -28,4 +35,9 @@ keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to [p]revious tab' }
 keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- make the umlauts useful
-keymap.set('n', 'ö', ':', { noremap = true, silent = true })
+keymap.set('n', 'ö', ':')
+
+-- disable "jumpy" default behaviour when pressing Shift-Down/Up
+-- now we just jump 5 lines
+vim.keymap.set({ 'n', 'v', 'i' }, '<S-Down>', '5j')
+vim.keymap.set({ 'n', 'v', 'i' }, '<S-Up>', '5k')
