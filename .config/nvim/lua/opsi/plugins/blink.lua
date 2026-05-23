@@ -38,23 +38,14 @@ return {
         default = {
           'lsp',
           'snippets',
-          -- 'copilot',
+          'lazydev', -- for "folke/lazydev.nvim"
           'path',
           'buffer',
         },
         providers = {
           lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
-          -- copilot = {
-          --   name = 'Copilot',
-          --   module = 'blink-copilot',
-          --   score_offset = 100,
-          --   async = true,
-          -- },
         },
-        per_filetype = {
-          codecompanion = { 'codecompanion' },
-          lua = { inherit_defaults = true, 'lazydev' },
-        },
+        per_filetype = {},
       },
       snippets = { preset = 'luasnip' },
 

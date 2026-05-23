@@ -23,18 +23,6 @@ require('lazy').setup {
     { import = 'opsi.plugins.lsp' },
 
     -- TODO: This is still from kickstart and should probably be moved into its own file
-    {
-      -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-      -- used for completion, annotations and signatures of Neovim apis
-      'folke/lazydev.nvim',
-      ft = 'lua',
-      opts = {
-        library = {
-          -- Load luvit types when the `vim.uv` word is found
-          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-        },
-      },
-    },
   },
 
   -- TODO: find out what this does
