@@ -1,5 +1,5 @@
 return { -- Collection of various small independent plugins/modules
-  "echasnovski/mini.nvim",
+  "nvim-mini/mini.nvim",
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -14,8 +14,10 @@ return { -- Collection of various small independent plugins/modules
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
-    -- TODO: check if this is useful for me or not
-    -- require('mini.surround').setup()
+    require("mini.surround").setup()
+
+    -- highlights the current word under the cursor
+    require("mini.cursorword").setup()
 
     local hipatterns = require("mini.hipatterns")
     hipatterns.setup({
@@ -32,6 +34,6 @@ return { -- Collection of various small independent plugins/modules
     })
 
     -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    --  Check out: https://github.com/nvim-mini/mini.nvim
   end,
 }
