@@ -1,2 +1,2 @@
-require 'opsi.core.keymaps'
-require 'opsi.core.options'
+require("opsi.core.keymaps")
+require("opsi.core.options")

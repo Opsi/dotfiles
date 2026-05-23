@@ -1,24 +1,24 @@
 return {
   { -- Autocompletion
-    'saghen/blink.cmp',
-    event = 'VimEnter',
-    version = '1.*',
+    "saghen/blink.cmp",
+    event = "VimEnter",
+    version = "1.*",
     dependencies = {
       -- Snippet Engine
       {
-        'L3MON4D3/LuaSnip',
-        version = '2.*',
-        build = 'make install_jsregexp',
+        "L3MON4D3/LuaSnip",
+        version = "2.*",
+        build = "make install_jsregexp",
       },
       -- 'fang2hou/blink-copilot',
-      'folke/lazydev.nvim',
-      'rafamadriz/friendly-snippets',
+      "folke/lazydev.nvim",
+      "rafamadriz/friendly-snippets",
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
     opts = {
       keymap = {
-        preset = 'default',
+        preset = "default",
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
@@ -26,28 +26,28 @@ return {
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono',
+        nerd_font_variant = "mono",
       },
 
       completion = {
-        menu = { border = 'single' },
-        documentation = { window = { border = 'single' }, auto_show = true, auto_show_delay_ms = 500 },
+        menu = { border = "single" },
+        documentation = { window = { border = "single" }, auto_show = true, auto_show_delay_ms = 500 },
       },
 
       sources = {
         default = {
-          'lsp',
-          'snippets',
-          'lazydev', -- for "folke/lazydev.nvim"
-          'path',
-          'buffer',
+          "lsp",
+          "snippets",
+          "lazydev", -- for "folke/lazydev.nvim"
+          "path",
+          "buffer",
         },
         providers = {
-          lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
+          lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
         },
         per_filetype = {},
       },
-      snippets = { preset = 'luasnip' },
+      snippets = { preset = "luasnip" },
 
       -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
       -- which automatically downloads a prebuilt binary when enabled.
@@ -56,9 +56,9 @@ return {
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = "lua" },
       -- Shows a signature help window while you type arguments for a function
-      signature = { window = { border = 'single' }, enabled = true },
+      signature = { window = { border = "single" }, enabled = true },
     },
   },
 }

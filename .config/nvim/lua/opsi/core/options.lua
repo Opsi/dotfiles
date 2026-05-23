@@ -29,14 +29,14 @@ opt.cursorline = true
 -- turn on termguicolors for tokyonight colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.background = 'dark' -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = 'yes' -- show sign column so that text doesn't shift
+opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
-opt.backspace = 'indent,eol,start' -- allow backspace on indent, end of line or insert mode start position
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append 'unnamedplus' -- use system clipboard as default register
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -55,7 +55,7 @@ opt.updatetime = 250
 opt.scrolloff = 10
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- TODO: check if this does something with lualine
 -- Don't show the mode, since it's already in the status line
@@ -68,7 +68,7 @@ opt.undofile = true
 opt.timeoutlen = 300
 
 -- allow cursor to wrap to next/prev line with arrows
-opt.whichwrap = '<,>,[,],b,s'
+opt.whichwrap = "<,>,[,],b,s"
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -79,10 +79,10 @@ opt.whichwrap = '<,>,[,],b,s'
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+opt.inccommand = "split"
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -91,9 +91,9 @@ opt.confirm = true
 
 -- Highlight when yanking (copying) text
 --  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,

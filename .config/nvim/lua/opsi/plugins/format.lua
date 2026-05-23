@@ -1,16 +1,16 @@
 return {
   { -- Autoformat
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     keys = {
       {
-        'gf',
+        "gf",
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require("conform").format({ async = true, lsp_format = "fallback" })
         end,
-        mode = '',
-        desc = '[f]ormat buffer',
+        mode = "",
+        desc = "[f]ormat buffer",
       },
     },
     opts = {
@@ -25,29 +25,29 @@ return {
         else
           return {
             timeout_ms = 500,
-            lsp_format = 'fallback',
+            lsp_format = "fallback",
           }
         end
       end,
       formatters_by_ft = {
-        lua = { 'stylua' },
-        css = { 'biome' },
-        json = { 'biome' },
-        jsonc = { 'biome' },
-        javascript = { 'biome', 'biome-check', 'biome-organize-imports' },
-        javascriptreact = { 'biome', 'biome-check', 'biome-organize-imports' },
-        typescript = { 'biome', 'biome-check', 'biome-organize-imports' },
-        typescriptreact = { 'biome', 'biome-check', 'biome-organize-imports' },
+        lua = { "stylua" },
+        css = { "biome" },
+        json = { "biome" },
+        jsonc = { "biome" },
+        javascript = { "biome", "biome-check", "biome-organize-imports" },
+        javascriptreact = { "biome", "biome-check", "biome-organize-imports" },
+        typescript = { "biome", "biome-check", "biome-organize-imports" },
+        typescriptreact = { "biome", "biome-check", "biome-organize-imports" },
         -- Conform can also run multiple formatters sequentially
         python = {
           -- To fix auto-fixable lint errors.
-          'ruff_fix',
+          "ruff_fix",
           -- To run the Ruff formatter.
-          'ruff_format',
+          "ruff_format",
           -- To organize the imports.
-          'ruff_organize_imports',
+          "ruff_organize_imports",
         },
-        zig = { 'zls' },
+        zig = { "zls" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
