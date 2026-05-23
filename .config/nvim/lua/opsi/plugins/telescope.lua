@@ -65,7 +65,7 @@ return {
       local keymap = vim.keymap
       local builtin = require("telescope.builtin")
       keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[f]ind [f]iles" })
-      keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "find[ ]buffers" })
+      keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[f]ind [b]uffers" })
       keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind by [g]rep" })
       keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[f]earch [k]eymaps" })
       keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "[f]ind string under [c]ursor" })
@@ -84,13 +84,13 @@ return {
       keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[f]ind in [d]iagnostics" })
 
       -- Slightly advanced example of overriding default behavior and theme
-      keymap.set("n", "<leader>/", function()
+      keymap.set("n", "<leader><leader>", function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
           winblend = 10,
           previewer = false,
         }))
-      end, { desc = "[/] Fuzzily search in current buffer" })
+      end, { desc = "Fuzzily search in current buffer" })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
