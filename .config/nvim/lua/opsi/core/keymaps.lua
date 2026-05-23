@@ -41,3 +41,18 @@ keymap.set('n', 'ö', ':')
 -- now we just jump 5 lines
 vim.keymap.set({ 'n', 'v', 'i' }, '<S-Down>', '5j')
 vim.keymap.set({ 'n', 'v', 'i' }, '<S-Up>', '5k')
+
+-- Substitute visual selection
+vim.keymap.set('v', '<C-r>', function()
+  -- Yank current visual selection into the unnamed register
+  vim.cmd 'normal! "vy'
+  -- Get the content of the register
+  local text = vim.fn.getreg 'v'
+  -- Escape special characters for use in a vim search pattern
+  local escaped_text = vim.fn.escape(text, '/\\^$*.[ ]')
+  -- Prepare the command line: :%s/TEXT//g
+  -- The <lt>left> sequence moves the cursor back between the slashes
+  local command = ':%s/' .. escaped_text .. '//g<left><left>'
+  -- Feed the keys to Neovim
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(command, true, false, true), 'n', false)
+end, { desc = 'Search and replace selection without junk characters' })
