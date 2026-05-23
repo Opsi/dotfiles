@@ -1,6 +1,10 @@
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- TODO: find out what this modeline is
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+
 local opt = vim.opt
 
 opt.relativenumber = true
