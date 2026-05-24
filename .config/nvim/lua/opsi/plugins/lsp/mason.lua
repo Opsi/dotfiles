@@ -1,5 +1,23 @@
 return {
   {
+    -- installs LSPs, DAPs, linters and formatters
+    "williamboman/mason.nvim",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✔",
+          package_pending = "➜",
+          package_uninstalled = "🗙",
+        },
+      },
+    },
+  },
+  {
+    -- helps with giving the LPSs a proper default configuration
+    "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/mason.nvim" },
+  },
+  {
     -- this is used to automate the configuration of language
     -- servers (installed via mason)
     "williamboman/mason-lspconfig.nvim",
@@ -17,20 +35,34 @@ return {
       },
     },
     dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = {
-          ui = {
-            icons = {
-              package_installed = "✔",
-              package_pending = "➜",
-              package_uninstalled = "🗙",
-            },
-          },
-        },
-      },
+      "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
     },
+    config = function(_, opts)
+      require("mason-lspconfig").setup(opts)
+
+      vim.lsp.config("gopls", {
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=integration,unit" },
+            analyses = { unusedparams = true },
+          },
+        },
+      })
+
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          },
+        },
+      })
+
+      -- 3. Enable all servers in your ensure_installed list
+      for _, server in ipairs(opts.ensure_installed) do
+        vim.lsp.enable(server)
+      end
+    end,
   },
   {
     -- this one installs the non-LSP things (via mason)
