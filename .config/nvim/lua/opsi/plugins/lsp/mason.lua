@@ -51,11 +51,10 @@ return {
       })
 
       vim.lsp.config("lua_ls", {
-        settings = {
-          Lua = {
-            diagnostics = { globals = { "vim" } },
-          },
-        },
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        root_markers = { ".luarc.json", ".git" },
+        settings = { Lua = { diagnostics = { globals = { "vim" } } } },
       })
 
       -- 3. Enable all servers in your ensure_installed list
