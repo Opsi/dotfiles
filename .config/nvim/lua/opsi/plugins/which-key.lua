@@ -48,6 +48,7 @@ return {
         { "<leader>f", group = "[f]ind" },
         --TODO: is this right?
         { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+        { "<leader>d", group = "Debug", mode = { "n", "v" } },
         { "<leader>w", group = "Sessions", mode = { "n", "v" } },
       },
     },

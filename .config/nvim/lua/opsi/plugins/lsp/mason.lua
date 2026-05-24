@@ -75,6 +75,7 @@ return {
         "black", -- python formatter
         "pylint",
         "eslint_d",
+        "delve", -- for golang debugging
       },
     },
     dependencies = {

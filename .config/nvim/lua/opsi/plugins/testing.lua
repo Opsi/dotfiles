@@ -37,11 +37,18 @@ return {
         desc = "Run Nearest Test",
       },
       {
+        "<leader>td",
+        function()
+          require("neotest").run.run({ strategy = "dap" })
+        end,
+        desc = "Debug Nearest Test",
+      },
+      {
         "<leader>tf",
         function()
           require("neotest").run.run(vim.fn.expand("%"))
         end,
-        desc = "Run File",
+        desc = "Run Tests in File",
       },
       {
         "<leader>ts",

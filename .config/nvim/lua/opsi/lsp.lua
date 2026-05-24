@@ -1,7 +1,7 @@
-local keymap = vim.keymap
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", {}),
   callback = function(ev)
+    local keymap = vim.keymap
     local opts = { buffer = ev.buf, silent = true }
 
     opts.desc = "[g]oto [R]eferences"
