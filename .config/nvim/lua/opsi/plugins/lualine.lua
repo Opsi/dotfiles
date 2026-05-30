@@ -9,14 +9,9 @@ return {
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { "diff", "diagnostics" },
+          lualine_b = { "diagnostics" },
           lualine_c = { { "filename", path = 1 } },
           lualine_x = {
-            { "fileformat", "filetype" },
-            {
-              require("noice").api.status.message.get_hl,
-              cond = require("noice").api.status.message.has,
-            },
             {
               require("noice").api.status.command.get,
               cond = require("noice").api.status.command.has,
