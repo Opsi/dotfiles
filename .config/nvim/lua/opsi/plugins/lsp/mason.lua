@@ -44,6 +44,7 @@ return {
       vim.lsp.config("gopls", {
         settings = {
           gopls = {
+            gofumpt = true,
             buildFlags = { "-tags=integration,unit" },
             analyses = { unusedparams = true },
           },
@@ -76,6 +77,7 @@ return {
         "pylint",
         "eslint_d",
         "delve", -- for golang debugging
+        "gofumpt", -- for golang formatting
       },
     },
     dependencies = {
