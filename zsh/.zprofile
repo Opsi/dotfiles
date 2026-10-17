@@ -1,16 +1,22 @@
 ## Set your preferred text editor
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export TERM="kitty"
 
-# Set locale and language settings
-# LC_ALL overrides all other locale settings
-# LANG sets the default locale if specific LC_* variables are not set
-export LANG="en_GB.UTF-8"
-export LC_ALL="en_GB.UTF-8"
+# Set locale and language settings when the locales exist on this machine
+_has_locale() {
+  locale -a 2>/dev/null | grep -Eiq "^$1$"
+}
+
+if _has_locale 'en_GB\.utf-?8'; then
+  export LANG="en_GB.UTF-8"
+fi
 
 # Set locale for time and date formatting to German
-export LC_TIME="de_DE.UTF-8"
+if _has_locale 'de_DE\.utf-?8'; then
+  export LC_TIME="de_DE.UTF-8"
+fi
+
+unset -f _has_locale
 
 # XDG Base Directory Specification variables
 # Helps keep your home directory tidy
@@ -53,4 +59,6 @@ if [ -d "$HOME/go/bin" ]; then
 fi
 
 # neovim
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+if [ -d "/opt/nvim-linux-x86_64/bin" ]; then
+  export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+fi

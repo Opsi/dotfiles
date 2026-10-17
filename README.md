@@ -1,15 +1,22 @@
 # dotfiles
 
-- clone this to ~
-- install stow with
+Clone this repository to `~/dotfiles`.
+
+Install GNU Stow:
 
 ```bash
 sudo apt install stow
 ```
 
-- cd inside the ~/dotfiles
-- run stow with
+Stow the modules you want:
 
 ```bash
-stow .
+cd ~/dotfiles
+stow --no-folding zsh bash nvim starship kitty ghostty sway waybar wofi mako
+```
+
+Unstow a module:
+
+```bash
+stow -D zsh
 ```
