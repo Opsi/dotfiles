@@ -30,6 +30,7 @@ return {
         "biome",
         "emmet_language_server",
         "gopls",
+        "ols", -- Odin language server
         "lua_ls",
         "rust_analyzer",
       },
