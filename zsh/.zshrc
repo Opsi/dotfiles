@@ -84,23 +84,27 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-[ -f "$XDG_CONFIG_HOME/shell/alias" ] && source "$XDG_CONFIG_HOME/shell/alias"
+ALIAS_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/shell/alias"
+[ -f "$ALIAS_FILE" ] && source "$ALIAS_FILE"
+unset ALIAS_FILE
 
 # Shell integrations
-# TODO: if fzf version is > 0.48 use this line instead
-source <(fzf --zsh)
-# if fzf version is < 0.48 use these lines
-# export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-# source /usr/share/doc/fzf/examples/key-bindings.zsh
-# source /usr/share/doc/fzf/examples/completion.zsh
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
 
 # kubectl completion
-source <(kubectl completion zsh)
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
 
-. "${HOME}/.deno/env"
+# deno
+[ -f "${HOME}/.deno/env" ] && source "${HOME}/.deno/env"
 
 # zoxide
-eval "$(zoxide init zsh)"
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
 
 # yazi
 function y() {
@@ -116,8 +120,10 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # starship
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-eval "$(starship init zsh)"
+if command -v starship >/dev/null 2>&1; then
+  export STARSHIP_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/starship/starship.toml"
+  eval "$(starship init zsh)"
+fi
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -128,9 +134,9 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
-. "/home/robinw/.deno/env"
+
 # pnpm
-export PNPM_HOME="/home/robinw/.local/share/pnpm"
+export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -138,15 +144,20 @@ esac
 # pnpm end
 
 # fnm
-FNM_PATH="/home/robinw/.local/share/fnm"
+FNM_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
+  if command -v fnm >/dev/null 2>&1; then
+    eval "$(fnm env)"
+  fi
 fi
 
 # bun completions
-[ -s "/home/robinw/.bun/_bun" ] && source "/home/robinw/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+case ":$PATH:" in
+  *":$BUN_INSTALL/bin:"*) ;;
+  *) export PATH="$BUN_INSTALL/bin:$PATH" ;;
+esac

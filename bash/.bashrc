@@ -116,28 +116,48 @@ if ! shopt -oq posix; then
 fi
 
 # neovim
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+if [ -d "/opt/nvim-linux-x86_64/bin" ]; then
+  export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+fi
+
 # installed go packages
-export PATH=$PATH:~/go/bin
+if [ -d "$HOME/go/bin" ]; then
+  export PATH="$PATH:$HOME/go/bin"
+fi
+
 # global npm packages
-export PATH=~/.npm-global/bin:$PATH
+if [ -d "$HOME/.npm-global/bin" ]; then
+  export PATH="$HOME/.npm-global/bin:$PATH"
+fi
 
 # fzf key bindings
-source /usr/share/doc/fzf/examples/key-bindings.bash
-# Created by `pipx` on 2024-10-17 12:27:35
-export PATH="$PATH:~/.local/bin"
-source <(kubectl completion bash)
-alias k=kubectl
-complete -o default -F __start_kubectl k
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
 
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
+# user-local binaries
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$PATH:$HOME/.local/bin"
+fi
+
+# kubectl completion
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion bash)
+  alias k=kubectl
+  complete -o default -F __start_kubectl k
+fi
+
+if locale -a 2>/dev/null | grep -Eiq '^en_US\.utf-?8$'; then
+  export LANG="en_US.UTF-8"
+fi
 
 # deno
-. "${HOME}/.deno/env"
-source "${HOME}/.local/share/bash-completion/completions/deno.bash"
-. "$HOME/.cargo/env"
-. "/home/robinw/.deno/env"
+[ -f "${HOME}/.deno/env" ] && source "${HOME}/.deno/env"
+[ -f "${HOME}/.local/share/bash-completion/completions/deno.bash" ] && source "${HOME}/.local/share/bash-completion/completions/deno.bash"
+
+# cargo
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
