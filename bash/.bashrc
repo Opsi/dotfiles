@@ -151,10 +151,6 @@ if locale -a 2>/dev/null | grep -Eiq '^en_US\.utf-?8$'; then
   export LANG="en_US.UTF-8"
 fi
 
-# deno
-[ -f "${HOME}/.deno/env" ] && source "${HOME}/.deno/env"
-[ -f "${HOME}/.local/share/bash-completion/completions/deno.bash" ] && source "${HOME}/.local/share/bash-completion/completions/deno.bash"
-
 # cargo
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
