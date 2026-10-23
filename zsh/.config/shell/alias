@@ -20,5 +20,6 @@ gp='git push' \
 gs='git status --short' \
 gu='git pull' \
 lg="lazygit" \
+ld="lazydocker" \
 up='sudo dnf update -y && flatpak update -y' \
 open='xdg-open'
