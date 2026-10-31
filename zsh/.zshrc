@@ -138,8 +138,3 @@ if [ -d "$FNM_PATH" ]; then
     eval "$(fnm env)"
   fi
 fi
-
-
-# atuin
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
