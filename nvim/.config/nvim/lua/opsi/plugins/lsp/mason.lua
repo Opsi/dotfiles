@@ -33,6 +33,7 @@ return {
         "ols", -- Odin language server
         "lua_ls",
         "rust_analyzer",
+        "marksman", -- for note taking
       },
     },
     dependencies = {
