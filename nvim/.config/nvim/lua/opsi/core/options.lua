@@ -14,7 +14,6 @@ opt.number = true
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
 
 -- Enable break indent
 opt.breakindent = true
@@ -26,14 +25,8 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 -- Show which line your cursor is on
 opt.cursorline = true
 
--- turn on termguicolors for tokyonight colorscheme to work
--- (have to use iterm2 or any other true color terminal)
-opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
@@ -53,9 +46,6 @@ opt.updatetime = 250
 
 -- Minimal number of screen lines to keep above and below the cursor.
 opt.scrolloff = 10
-
--- Enable mouse mode, can be useful for resizing splits for example!
-opt.mouse = "a"
 
 -- TODO: check if this does something with lualine
 -- Don't show the mode, since it's already in the status line
@@ -88,6 +78,17 @@ opt.inccommand = "split"
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 opt.confirm = true
+
+-- default border for all floating windows (hover, diagnostics, completion, ...)
+opt.winborder = "rounded"
+
+-- folding (builtin): treesitter folds by default, LSP folds when the server supports it (see lsp.lua)
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = "" -- show the folded line with its syntax highlighting
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
 
 -- Highlight when yanking (copying) text
 --  See `:help vim.hl.on_yank()`

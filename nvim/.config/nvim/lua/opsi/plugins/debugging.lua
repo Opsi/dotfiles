@@ -103,19 +103,19 @@ return {
 
       opts.desc = "[p]review marked expression"
       keymap.set({ "n", "v" }, "<Leader>dp", function()
-        require("dap.ui.widgets").preview(nil, { border = "rounded" })
+        require("dap.ui.widgets").preview()
       end, opts)
 
       opts.desc = "Show [f]rames"
       keymap.set("n", "<Leader>df", function()
         local widgets = require("dap.ui.widgets")
-        widgets.centered_float(widgets.frames, { border = "rounded" })
+        widgets.centered_float(widgets.frames)
       end, opts)
 
       opts.desc = "Show [s]copes"
       keymap.set("n", "<Leader>ds", function()
         local widgets = require("dap.ui.widgets")
-        widgets.centered_float(widgets.scopes, { border = "rounded" })
+        widgets.centered_float(widgets.scopes)
       end, opts)
 
       -- Change breakpoint icons

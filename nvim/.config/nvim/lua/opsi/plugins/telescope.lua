@@ -67,7 +67,6 @@ return {
       keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[f]ind [f]iles" })
       keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[f]ind [b]uffers" })
       keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind by [g]rep" })
-      keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[f]earch [k]eymaps" })
       keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "[f]ind string under [c]ursor" })
       keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp tags" })
       keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "[f]ind [s]ymbols" })

@@ -27,12 +27,6 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
-    local diff = require("mini.diff")
-    diff.setup({
-      -- Disabled by default
-      source = diff.gen_source.none(),
-    })
-
     -- ... and there is more!
     --  Check out: https://github.com/nvim-mini/mini.nvim
   end,

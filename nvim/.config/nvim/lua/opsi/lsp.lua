@@ -4,6 +4,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local keymap = vim.keymap
     local opts = { buffer = ev.buf, silent = true }
 
+    -- prefer LSP folding over treesitter when the server supports it
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client:supports_method("textDocument/foldingRange") then
+      vim.wo[0][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+
     opts.desc = "[g]oto [R]eferences"
     keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
 
@@ -24,9 +30,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     opts.desc = "[r]e[n]ame"
     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-    opts.desc = "Show line diagnostics"
-    keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 
     opts.desc = "[t]oggle Inlay [h]ints"
     keymap.set("n", "<leader>th", function()
@@ -59,7 +62,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config({
   severity_sort = true,
-  float = { border = "rounded", source = "if_many" },
+  jump = { float = true }, -- ]d / [d open the diagnostic float
+  float = { source = "if_many" },
   underline = { severity = vim.diagnostic.severity.ERROR },
   signs = vim.g.have_nerd_font and {
     text = {
@@ -72,14 +76,5 @@ vim.diagnostic.config({
   virtual_text = {
     source = "if_many",
     spacing = 2,
-    format = function(diagnostic)
-      local diagnostic_message = {
-        [vim.diagnostic.severity.ERROR] = diagnostic.message,
-        [vim.diagnostic.severity.WARN] = diagnostic.message,
-        [vim.diagnostic.severity.INFO] = diagnostic.message,
-        [vim.diagnostic.severity.HINT] = diagnostic.message,
-      }
-      return diagnostic_message[diagnostic.severity]
-    end,
   },
 })

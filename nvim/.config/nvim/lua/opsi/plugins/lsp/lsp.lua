@@ -1,6 +1,4 @@
 return {
-  -- provides a little update window in the bottom right corner
-  { "j-hui/fidget.nvim" },
   {
     -- used to support lsp based file renamings
     "antosha417/nvim-lsp-file-operations",

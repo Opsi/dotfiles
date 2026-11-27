@@ -30,8 +30,7 @@ return {
       },
 
       completion = {
-        menu = { border = "single" },
-        documentation = { window = { border = "single" }, auto_show = true, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
       },
 
       sources = {
@@ -58,7 +57,7 @@ return {
       -- See :h blink-cmp-config-fuzzy for more information
       fuzzy = { implementation = "lua" },
       -- Shows a signature help window while you type arguments for a function
-      signature = { window = { border = "single" }, enabled = true },
+      signature = { enabled = true },
     },
   },
 }
